@@ -23,7 +23,7 @@ const inheart = (x, y, r) => {
   return z < 0;
 };
 
-const i_and_you_title = `周周和邱邱在一起的`;
+const i_and_you_title = `小胖胖和大宝贝相识的`;
 const i_and_you_colors = [
   "rgb(0, 255, 25)",
   "rgb(0, 255, 143)",
@@ -76,16 +76,16 @@ let title = "";
 const createTitle = () => {
   if (title) return title;
 
-  // const result = i_and_you_title
-  //   .split("")
-  //   .map((content, index) => {
-  //     return `<span style="color: ${i_and_you_colors[index]}">${content}</span>`;
-  //   })
-  //   .join("");
+  const result = i_and_you_title
+    .split("")
+    .map((content, index) => {
+      return `<span style="color: ${i_and_you_colors[index]}">${content}</span>`;
+    })
+    .join("");
 
-  // title = result;
-  title = i_and_you_title;
-  const result = title;
+  title = result;
+  // title = i_and_you_title;
+  // const result = title;
   return result;
 };
 
@@ -119,49 +119,49 @@ const createTime = (date) => {
   return result;
 };
 
-// const timeElapse = (date) => {
-//   let time = createTime(date);
-//   time = time.replace(/>\s*?(\d{1})\s*?</g, (...[, $1]) => {
-//     return `><span class="digit">${$1}</span><`;
-//   });
-//   $("#clock").html(time);
-
-//   const title = createTitle();
-//   $("#title").html(title);
-// };
-
 const timeElapse = (date) => {
-  var current = Date();
-  var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-  var days = Math.floor(seconds / (3600 * 24));
-  seconds = seconds % (3600 * 24);
-  var hours = Math.floor(seconds / 3600);
-  if (hours < 10) {
-    hours = "0" + hours;
-  }
-  seconds = seconds % 3600;
-  var minutes = Math.floor(seconds / 60);
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  seconds = seconds % 60;
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
-  var result =
-    '第 <span class="digit">' +
-    days +
-    '</span> 天 <span class="digit">' +
-    hours +
-    '</span> 小时 <span class="digit">' +
-    minutes +
-    '</span> 分钟 <span class="digit">' +
-    seconds +
-    "</span> 秒";
-  $("#clock").html(result);
+  let time = createTime(date);
+  time = time.replace(/>\s*?(\d{1})\s*?</g, (...[, $1]) => {
+    return `><span class="digit">${$1}</span><`;
+  });
+  $("#clock").html(time);
+
   const title = createTitle();
   $("#title").html(title);
 };
+
+// const timeElapse = (date) => {
+//   var current = Date();
+//   var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+//   var days = Math.floor(seconds / (3600 * 24));
+//   seconds = seconds % (3600 * 24);
+//   var hours = Math.floor(seconds / 3600);
+//   if (hours < 10) {
+//     hours = "0" + hours;
+//   }
+//   seconds = seconds % 3600;
+//   var minutes = Math.floor(seconds / 60);
+//   if (minutes < 10) {
+//     minutes = "0" + minutes;
+//   }
+//   seconds = seconds % 60;
+//   if (seconds < 10) {
+//     seconds = "0" + seconds;
+//   }
+//   var result =
+//     '第 <span class="digit">' +
+//     days +
+//     '</span> 天 <span class="digit">' +
+//     hours +
+//     '</span> 小时 <span class="digit">' +
+//     minutes +
+//     '</span> 分钟 <span class="digit">' +
+//     seconds +
+//     "</span> 秒";
+//   $("#clock").html(result);
+//   const title = createTitle();
+//   $("#title").html(title);
+// };
 
 const timeOut = async (time, condition, action) =>
   new Promise((r, j) => {
