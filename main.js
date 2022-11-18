@@ -2,6 +2,10 @@ import mount from "./share/App";
 import "./self.css";
 
 document.querySelector("#app").innerHTML = `
+<!-- 音乐 -->
+<audio id="audio" autoplay="autoplay" loop>
+  <source src="./lingzhou.mp3" type="audio/mp3" />
+</audio>
 <div id="main">
   <div id="wrap">
     <div id="text">
@@ -40,11 +44,17 @@ document.querySelector("#app").innerHTML = `
     </div>
     <canvas id="canvas" width="1100" height="680"></canvas>
   </div>
-  <audio src="love.mp3" autoplay="autoplay"></audio>
 </div>
 
 `;
 
 window.onload = async () => {
+  const music = document.querySelector("#audio");
+  document.body.addEventListener("click", function () {
+    if (music.paused) {
+      music.play();
+    }
+  });
+
   await mount();
 };
