@@ -4,7 +4,7 @@ import "./self.css";
 document.querySelector("#app").innerHTML = `
 <!-- 音乐 -->
 <audio id="audio" autoplay="autoplay" loop>
-  <source src="./lingzhou.mp3" type="audio/mp3" />
+  <source src="./its_you.mp3" type="audio/mp3" />
 </audio>
 <div id="main">
   <div id="wrap">
