@@ -62,7 +62,29 @@ a {
 }
 .say {
   margin-left: 5px;
+  animation-name: lighting;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  text-shadow: 3px 3px 2rem pink;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-delay: 0.3s;
+  transition: font-size 1s;
 }
 .space {
   margin-right: 150px;
+}
+
+@keyframes lighting {
+  20% {
+    color: red;
+  }
+
+  60% {
+    color: slateblue;
+  }
+
+  100% {
+    color: blue;
+  }
 }
